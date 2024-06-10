@@ -21,8 +21,8 @@ services:
       - searxng
     ports:
       - 33001:3001
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+    # extra_hosts:
+    #   - "host.docker.internal:host-gateway"
     networks:
       - perplexica-network
     restart: unless-stopped
@@ -32,8 +32,8 @@ services:
       context: .
       dockerfile: app.dockerfile
       args:
-        - NEXT_PUBLIC_API_URL=http://10.0.0.21:33001/api
-        - NEXT_PUBLIC_WS_URL=ws://10.0.0.21:33001
+        - NEXT_PUBLIC_API_URL=http://10.0.0.53:33001/api
+        - NEXT_PUBLIC_WS_URL=ws://10.0.0.53:33001
     container_name: perplexica-frontend
     depends_on:
       - perplexica-backend

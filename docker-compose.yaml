@@ -23,6 +23,8 @@ services:
       - 33001:3001
     # extra_hosts:
     #   - "host.docker.internal:host-gateway"
+    volumes:
+      - backend-dbstore:/home/perplexica/data
     networks:
       - perplexica-network
     restart: unless-stopped
@@ -45,3 +47,6 @@ services:
 
 networks:
   perplexica-network:
+
+volumes:
+  backend-dbstore:
